@@ -20,3 +20,6 @@ fn main() {
 
     println!("Angka yang kamu masukkan: {}", guess);
 }
+
+// flush explanation
+// https://stackoverflow.com/questions/34993744/why-does-this-read-input-before-printing
