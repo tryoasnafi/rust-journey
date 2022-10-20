@@ -11,7 +11,7 @@ fn main() {
 fn is_palindrome(s: String) -> bool {
     // if s length is 0 or 1 return true
     if s.len() == 0 || s.len() == 1 {
-        true; // equivalent to return true;
+        return true;
     }
 
     // rust doesn't treat strings as arrays
@@ -23,28 +23,28 @@ fn is_palindrome(s: String) -> bool {
 
     loop {
         // O(n/2)
-        if first_index < last_index {
+        if first_index >= last_index {
             break;
         }
 
         // skip, if char is not alphabetic
-        if chars[first_index].is_alphabetic() {
+        if !chars[first_index].is_alphabetic() {
             first_index += 1;
             continue;
         }
-        if chars[last_index].is_alphabetic() {
-            last_index += 1;
+        if !chars[last_index].is_alphabetic() {
+            last_index -= 1;
             continue;
         }
 
         // compare left and right char
         if chars[first_index].to_ascii_lowercase() != chars[last_index].to_ascii_lowercase() {
-            false;
+            return false;
         }
 
         first_index += 1;
         last_index -= 1;
     }
 
-    true
+    true // equivalent to return true;
 }
